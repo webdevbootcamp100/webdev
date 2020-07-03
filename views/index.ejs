@@ -8,8 +8,9 @@
 	
 <h2><%= data.title %></h2>	
 <img src="<%= data.image %>">	
-<p><%= data.body %></p>    
+<p><%= data.body.substring(0,10) %></p>    
 <span><%= data.created.toDateString() %></span>	
+<a class="item" href="/campgrounds/<%= data._id %>">READ MORE</a>
 	 
 </div> 
 

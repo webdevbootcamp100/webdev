@@ -52,7 +52,17 @@ app.post('/campgrounds',(req,res)=>{
 		}
 	});
 });
-
+//show route
+app.get('/campgrounds/:id',(req,res)=>{
+	Campground.findById(req.params.id,(e,s)=>{
+		if(e){
+			res.redirect('/campgrounds');
+		}
+		else{
+			res.render('show',{campi:s});                 
+		}
+	});
+});
 
 
 //server connection
