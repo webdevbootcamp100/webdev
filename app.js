@@ -7,9 +7,10 @@ const express          = require('express'),
 
 //app configuration
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(expressSanitizer());
 app.set('view engine','ejs');
 app.use(express.static('public'));      
-app.use(methodOverride('_method'));     
+app.use(methodOverride('_method'));      
 
 //database connection
 mongoose.connect('mongodb+srv://colt:9HXkkHt5v67u@TD@cluster0-ddvng.mongodb.net/app_db?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true});

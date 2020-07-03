@@ -1,19 +1,45 @@
 <%- include('partials/header') %>  
 
-<h4>INDEX PAGE :</h4>    
-
-<% camps.forEach((data)=>{ %>
-
-<div> 
+<div class="ui main text container">
 	
-<h2><%= data.title %></h2>	
-<img src="<%= data.image %>">	
-<p><%- data.body.substring(0,10) %></p>    
-<span><%= data.created.toDateString() %></span>	
-<a class="item" href="/campgrounds/<%= data._id %>">READ MORE</a>
-	 
-</div> 
+	<div class="ui huge header">Campgrounds App</div>
+	
+	<div class="ui top attached segment">
+		
+		<div class="ui divided items">
+			
+			<% camps.forEach((data)=>{ %>
+			
+			<div class="item">
+				
+				<div class="image"> 
+					<img src="<%= data.image %>">	
+				</div>
+				
+				<div class="content">
+					<a class="header" href="/campgrounds/<%= data._id %>"><%= data.title %></a>
+					
+					   <div class="meta"> 
+					   <span><%= data.created.toDateString() %></span>	
+					   </div>
+					
+					   <div class="description">
+					   <p><%- data.body.substring(0,10) %></p>    
+					   </div>
+					
+					   <div class="extra">
+					   <a class="ui blue basic button" href="/campgrounds/<%= data._id %>">
+						   READ MORE<i class="right chevron icon"></i></a>  
+					   </div>
+					
+				</div>
+				
+			</div>
 
-<% }) %>
+        <% }) %>
+			
+		</div>  	
+	</div>
+</div>
 
 <%- include('partials/header') %>  
