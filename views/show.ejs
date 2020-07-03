@@ -18,6 +18,10 @@
 					<p><%- campi.body %></p>
 			    </div> 
 			
+			    <form action="/campgrounds/<%= campi._id %>?_method=DELETE" method="POST">  
+					<button class="ui red basic button">DELETE</button>   
+			    </form>
+			
 		</div>  
 		
 	</div>
