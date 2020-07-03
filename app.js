@@ -27,8 +27,15 @@ const Campground = mongoose.model('app_table',campgroundSchema);
 app.get('/',(req,res)=>{
 	res.redirect('/campgrounds'); 
 });     
-app.get('/campgrounds',(req,res)=>{
-	res.render('index');   
+app.get('/campgrounds',(req,res)=>{  
+	Campground.find({},(e,s)=>{
+		if(e){ 
+			console.log(e);
+		}
+		else{
+			res.render('index',{camps:s});  
+		} 
+	}); 
 });  
 
 
