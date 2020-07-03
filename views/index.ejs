@@ -1,15 +1,17 @@
+<h1>INDEX PAGE :</h1>
+
 <% camps.forEach((data)=>{ %>
 
 <div>
+	
 <h2><%= data.title %></h2>	
-</div>
 
-<div>
 <img src="<%= data.image %>">	
-</div>
 
-<div>
-<p><%= data.body %></p>     	
-</div>
+<p><%= data.body %></p>    
+	
+<span><%= data.created %></span>	
+	 
+</div> 
 
 <% }); %>
