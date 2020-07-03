@@ -37,6 +37,22 @@ app.get('/campgrounds',(req,res)=>{
 		} 
 	}); 
 });  
+//new route
+app.get('/campgrounds/new',(req,res)=>{
+	res.render('new');   
+});
+//create route
+app.post('/campgrounds',(req,res)=>{
+	Campground.create(req.body.camp,(e,s)=>{
+		if(e){
+			res.render('new');
+		}
+		else{
+			res.redirect('/campgrounds');     
+		}
+	});
+});
+
 
 
 //server connection
