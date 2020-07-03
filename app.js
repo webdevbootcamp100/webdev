@@ -11,27 +11,21 @@ app.set('view engine','ejs');
 app.use(express.static('public'));      
 
 //database connection
-mongoose.connect('mongodb+srv://colt:9HXkkHt5v67u@TD@cluster0-ddvng.mongodb.net/appdb?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect('mongodb+srv://colt:9HXkkHt5v67u@TD@cluster0-ddvng.mongodb.net/app_db?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true});
 //schema setup
 const campgroundSchema = new mongoose.Schema({
 	title:String,
 	image:String,
 	body:String,
-	created:{type:Date,default:Date.now}
+	created:{type:Date,default:Date.now} 
 });
 //model setup     
-const Blog = mongoose.model('apptable',campgroundSchema);    
+const Campground = mongoose.model('app_table',campgroundSchema);    
 
-//RESTful routes 
-//index route 
+//index route
 app.get('/',(req,res)=>{
-	res.redirect('/campgrounds');  
-});
-app.get('/campgrounds',(req,res)=>{
-	res.render('index');   
+	res.render('index');
 });     
-
-
 
 
 //server connection
