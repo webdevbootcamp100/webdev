@@ -22,10 +22,14 @@ const campgroundSchema = new mongoose.Schema({
 //model setup     
 const Campground = mongoose.model('app_table',campgroundSchema);    
 
+//RESTful routes  
 //index route
 app.get('/',(req,res)=>{
-	res.render('index');
+	res.redirect('/campgrounds'); 
 });     
+app.get('/campgrounds',(req,res)=>{
+	res.render('index');   
+});  
 
 
 //server connection
